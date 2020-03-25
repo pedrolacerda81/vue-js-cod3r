@@ -1,9 +1,20 @@
 module.exports = app => {
+    const appApi = app.api
+
     app.route('/users')
-        .post(app.api.user.save)
-        .get(app.api.user.get)
+        .post(appApi.user.save)
+        .get(appApi.user.get)
 
     app.route('/users/:id')
-        .put(app.api.user.save)
-        .get(app.api.user.getById)
+        .put(appApi.user.save)
+        .get(appApi.user.getById)
+
+    app.route('/categories')
+        .post(appApi.category.save)
+        .get(appApi.category.get)
+
+    app.route('/categories/:id')
+        .put(appApi.category.save)
+        .get(appApi.category.getById)
+        .delete(appApi.category.remove)
 }
