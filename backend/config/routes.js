@@ -1,6 +1,10 @@
 module.exports = app => {
     const appApi = app.api
 
+    app.post('/signup', appApi.user.save)
+    app.post('/signin', appApi.auth.signIn)
+    app.post('/validateToken', appApi.auth.validateToken)
+
     app.route('/users')
         .post(appApi.user.save)
         .get(appApi.user.get)
